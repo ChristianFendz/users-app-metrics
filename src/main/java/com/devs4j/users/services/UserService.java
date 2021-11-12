@@ -45,7 +45,7 @@ public class UserService {
 	public User getUserByUsername(String username) {
 		log.info("Getting user by username {}", username);
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(300);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -55,6 +55,6 @@ public class UserService {
 
 	public User getUserByUsernameAndPassword(String username, String password) {
 		return userRepository.findByUsernameAndPassword(username, password).orElseThrow(
-				() -> new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("User %d not found", username)));
+				() -> new ResponseStatusException(HttpStatus.NOT_FOUND, String.format("User %s not found", username)));
 	}
 }
